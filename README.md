@@ -132,7 +132,7 @@ Parameters:
 You can also use the neural network implementation as a library in your Rust code:
 
 ```rust
-use belajar_neural_networks::{
+use neural_network_from_scratch::{
     activation::Activation,
     model::Model,
     nn::Linear,
