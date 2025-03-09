@@ -65,8 +65,11 @@ cp target/release/main .
 
 This project uses the MNIST dataset for training and testing the neural network. You can download the preprocessed binary files from the following URL:
 
-[Download MNIST Dataset Files (URL will be provided)]
-
+- [X_train.bin](https://github.com/share424/neural-network-from-scratch/releases/download/Dataset/X_train.bin)
+- [y_train.bin](https://github.com/share424/neural-network-from-scratch/releases/download/Dataset/y_train.bin)
+- [X_test.bin](https://github.com/share424/neural-network-from-scratch/releases/download/Dataset/X_test.bin)
+- [y_test.bin](https://github.com/share424/neural-network-from-scratch/releases/download/Dataset/y_test.bin)
+  
 The dataset consists of four files:
 - `X_train.bin` - Training images (60,000 images, 784 features each)
 - `y_train.bin` - Training labels (60,000 labels)
