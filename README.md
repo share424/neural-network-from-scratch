@@ -172,7 +172,7 @@ model.load("model.bin");
 
 ## YouTube Series
 
-This code was developed as part of my YouTube series on building neural networks from scratch. Watch the series here: [YouTube Channel Link]
+This code was developed as part of my YouTube series on building neural networks from scratch. Watch the series here: [Link](https://www.youtube.com/watch?v=qXRJnMe2NNc)
 
 ## Contributing
 
