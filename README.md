@@ -71,8 +71,8 @@ This project uses the MNIST dataset for training and testing the neural network.
 - [y_test.bin](https://github.com/share424/neural-network-from-scratch/releases/download/Dataset/y_test.bin)
   
 The dataset consists of four files:
-- `X_train.bin` - Training images (60,000 images, 784 features each)
-- `y_train.bin` - Training labels (60,000 labels)
+- `X_train.bin` - Training images (20,000 images, 784 features each)
+- `y_train.bin` - Training labels (20,000 labels)
 - `X_test.bin` - Test images (10,000 images, 784 features each)
 - `y_test.bin` - Test labels (10,000 labels)
 
