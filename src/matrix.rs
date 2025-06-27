@@ -1,4 +1,6 @@
 use std::fmt;
+use std::simd::f32x8;
+use std::simd::num::SimdFloat;
 
 #[derive(Debug, Clone)]
 pub struct Matrix {
@@ -76,14 +78,32 @@ impl Matrix {
 
 pub fn matmul(a: &Matrix, b: &Matrix) -> Matrix {
     assert!(a.cols == b.rows);
+
+    let b_t = b.transpose();
     let mut matrix = Matrix::zeros(a.rows, b.cols);
 
     for i in 0..a.rows {
         for j in 0..b.cols {
-            let mut sum = 0.0;
-            for k in 0..b.rows {
-                sum += a.get(i, k) * b.get(k, j);
+            let a_row = &a.data[i * a.cols..(i + 1) * a.cols];
+            let b_t_row = &b_t.data[j * b_t.cols..(j + 1) * b_t.cols];
+
+            let mut sum_vec = f32x8::splat(0.0); // 0 0 0 0 0 0 0 0
+            let mut k = 0;
+            let len = a.cols;
+            let chunks = len / 8;
+
+            for _ in 0..chunks {
+                let a_vec = f32x8::from_slice(&a_row[k..k + 8]);
+                let b_vec = f32x8::from_slice(&b_t_row[k..k + 8]);
+                sum_vec = (a_vec * b_vec) + sum_vec;
+                k += 8;
             }
+            let mut sum = sum_vec.reduce_sum();
+
+            for l in k..len {
+                sum += a_row[l] * b_t_row[l];
+            }
+
             matrix.set(i, j, sum);
         }
     }

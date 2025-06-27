@@ -1,4 +1,6 @@
+#![feature(portable_simd)]
 pub mod activation;
+pub mod benchmark;
 pub mod matrix;
 pub mod model;
 pub mod nn;
@@ -9,6 +11,7 @@ use std::io::{self, BufReader, Read};
 use std::process;
 
 use crate::activation::Activation;
+use crate::benchmark::benchmark_matmul;
 use crate::matrix::Matrix;
 use crate::model::Model;
 use crate::nn::Linear;
@@ -302,6 +305,10 @@ fn main() {
                 println!("Error during evaluation: {}", e);
                 process::exit(1);
             }
+        }
+        "benchmark-matmul" => {
+            benchmark_matmul();
+            process::exit(0);
         }
         _ => {
             println!("Unknown command: {}", args[1]);
