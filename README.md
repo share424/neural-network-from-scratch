@@ -9,6 +9,7 @@ A Rust implementation of neural networks built from scratch as demonstrated in m
   - [Overview](#overview)
   - [Features](#features)
   - [Requirements](#requirements)
+  - [UPDATE](#update)
   - [Installation](#installation)
   - [Dataset](#dataset)
   - [Usage](#usage)
@@ -39,6 +40,12 @@ This repository contains the code for a neural network implementation built enti
 
 - Rust (latest stable version recommended)
 - Cargo (comes with Rust)
+
+## UPDATE
+The newer version of this repository is using [portable-simd](https://github.com/rust-lang/portable-simd), so make sure your compiler is up to date and using nightly. We can do that by running
+```bash
+rustup update -- nightly
+```
 
 ## Installation
 
